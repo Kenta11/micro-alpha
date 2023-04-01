@@ -15,12 +15,12 @@ It runs all MICRO-1 control programs and machine programs.
 
 ## Directories
 
-|  name  | Contents                                     |
-|:------:|:---------------------------------------------|
-|  fpga  | Files to create a Xilinx Vivado project      |
-| script | Utility script                               |
-|  src   | MICRO-alpha in SystemVerilog                 |
-|   tb   | Unit tests for MICRO-alpha components in src |
+|  name  | Contents                                      |
+|:------:|:----------------------------------------------|
+| fpga   | Files to create a Xilinx Vivado project       |
+| script | Utility scripts                               |
+| src    | MICRO-alpha in SystemVerilog                  |
+| tb     | Testbenches for MICRO-alpha components in src |
 
 ## Try on a FPGA board
 
@@ -35,6 +35,15 @@ It runs all MICRO-1 control programs and machine programs.
 - Supported FPGA board
   - [Arty A7-100](https://digilent.com/reference/programmable-logic/arty-a7/start)
   - [Basys 3](https://digilent.com/reference/programmable-logic/basys-3/start) (**NOTE: Due to lack of resources, control and main memory are limited to 512 bytes and 1024 bytes respectively**)
+
+- Write programs into the COE files
+
+```
+$ rm1masm MICROONE -o MICROONE.O
+$ python script/obj2coe.py arty-a7-100 MICROONE.o fpga/arty-a7-100/control_program.coe
+$ rm1asm PROGRAM -o PROGRAM.B
+$ python script/obj2coe.py arty-a7-100 PROGRAM.B fpga/arty-a7-100/machine_program.coe
+```
 
 <details>
 <summary>Run "make all"</summary>
