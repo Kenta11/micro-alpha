@@ -30,8 +30,8 @@ vivado: $(SCRIPT) $(addprefix src/, $(SRCS))
 
 test: vunit_out
 
-vunit_out: $(addprefix src/, $(SRCS)) $(addprefix tb/, $(TESTS))
-	python run.py
+vunit_out: script/unittest.py $(addprefix src/, $(SRCS)) $(addprefix tb/, $(TESTS))
+	python script/unittest.py
 
 clean:
 	rm -rf vivado *.jou *.log vunit_out
