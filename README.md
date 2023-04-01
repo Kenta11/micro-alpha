@@ -34,8 +34,10 @@ It runs all MICRO-1 control programs and machine programs.
 
 - Supported FPGA board
   - [Arty A7-100](https://digilent.com/reference/programmable-logic/arty-a7/start)
-  - [Basys 3](https://digilent.com/reference/programmable-logic/basys-3/start)
-    - **NOTE: Due to lack of resources, control and main memory are limited to 512 bytes and 1024 bytes respectively**
+  - [Basys 3](https://digilent.com/reference/programmable-logic/basys-3/start) (**NOTE: Due to lack of resources, control and main memory are limited to 512 bytes and 1024 bytes respectively**)
+
+<details>
+<summary>Run "make all"</summary>
 
 ```
 $ make all
@@ -116,6 +118,7 @@ INFO: [Common 17-206] Exiting Vivado at Sat Apr  1 17:02:44 2023...
 $ ls vivado/arty-a7-100
 arty-a7-100.cache  arty-a7-100.gen  arty-a7-100.hw  arty-a7-100.ip_user_files  arty-a7-100.srcs  arty-a7-100.xpr
 ```
+</details>
 
 ## Unit tests
 
@@ -129,7 +132,8 @@ arty-a7-100.cache  arty-a7-100.gen  arty-a7-100.hw  arty-a7-100.ip_user_files  a
 ### Usage
 
 <details>
-<summary>Test results</summary>
+<summary>Run "make test"</summary>
+
 ```
 $ make test
 python script/unittest.py
