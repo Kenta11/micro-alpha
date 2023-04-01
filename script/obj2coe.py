@@ -4,8 +4,8 @@
 import sys
 
 
-def parse_main_memory(lines):
-    memory = ["0000"] * 4096
+def parse_main_memory(size, lines):
+    memory = ["0000"] * size
 
     for line in lines:
         address, value = line.split()
@@ -14,8 +14,8 @@ def parse_main_memory(lines):
     return memory
 
 
-def parse_control_memory(lines):
-    memory = ["0000000000"] * 65536
+def parse_control_memory(size, lines):
+    memory = ["0000000000"] * size
 
     for line in lines:
         address, value = line.split()
@@ -24,7 +24,7 @@ def parse_control_memory(lines):
     return memory
 
 
-def main(input_file, output_file):
+def main(memory_size, input_file, output_file):
     # read input
     with open(input_file) as f:
         lines = f.readlines()
@@ -32,9 +32,9 @@ def main(input_file, output_file):
     # parse lines
     first, _ = lines[0].split()
     if first == "MM":
-        memory = parse_main_memory(lines[1:])
+        memory = parse_main_memory(memory_size[0], lines[1:])
     elif first == "CM":
-        memory = parse_control_memory(lines[1:])
+        memory = parse_control_memory(memory_size[1], lines[1:])
     else:
         exit(1)
 
@@ -47,11 +47,18 @@ def main(input_file, output_file):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage:", sys.argv[0], "<input>", "<output>")
+    if len(sys.argv) < 4:
+        print("Usage:", sys.argv[0], "<board>", "<input>", "<output>")
+        print("<board>:=(arty-a7-100|basys-3)")
         exit(1)
 
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
+    memory_size_list = {
+        "arty-a7-100": [65536, 4096],
+        "basys-3": [1024, 512]
+    }
 
-    main(input_file, output_file)
+    memory_size = memory_size_list[sys.argv[1]]
+    input_file = sys.argv[2]
+    output_file = sys.argv[3]
+
+    main(memory_size, input_file, output_file)
