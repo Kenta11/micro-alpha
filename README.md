@@ -568,6 +568,7 @@ All passed!
 - simulator: [m1sim](https://github.com/kaien3/micro1)
 - machine assembler: [rm1asm](https://github.com/Kenta11/rm1asm)
 - micro assembler: [rm1masm](https://github.com/Kenta11/rm1masm)
+- my blog: [Kenta Arai Webpage](https://kenta11.github.io/posts/2023-03-18-micro-alpha/)
 
 ## License
 
