@@ -1,5 +1,7 @@
 # MICRO-alpha processor
 
+**This repository was archived. Latest version is [micro_alpha_veryl](https://github.com/Kenta11/micro_alpha_veryl).**
+
 ## About
 
 MICRO-alpha is a CISC implementation.
